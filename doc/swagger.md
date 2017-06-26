@@ -10,7 +10,7 @@ Based on jsdoc, it allows developpers to describe their RESTFUL API.
 (see http://swagger.io/specification/ for complete documentation on how to do so)
 
 Both JSON and YAML formats are possible.
-For now, the file is generated as « doc/REST_API/swagger/swagger.json »
+For now, the file is generated as « doc/REST_API/swagger/swagger.json » and « doc/REST_API/swagger/swagger_for_james.json »
 
 Once generated, the file can be exposed through dedicated server and a clean documentation can be viewed through dedicated client.
 http://editor.swagger.io/#/ provides a way to test it.
@@ -28,10 +28,15 @@ Layout:
     - defines the swagger-generate grunt task
     - defines general informations for the OpenPaaS API
      
+- tasks/swagger_for_james.js file:
+    - defines the swagger-james-generate grunt task
+    - defines general informations for the James API
+
 - doc/REST_API/swagger folder:
     - the swagger-generate grunt task generates a swagger.json file in this folder
+    - the swagger-james-generate grunt task generates a swagger_for_james.json file in this folder
     - definitions files: common.js, communities.js, users.js, according to the resources
         definitions are the way to factorize schemas, not to describe multiple times for each endpoint
          
-- In backend/webserver/api folder: 
+- In backend/webserver/api and backend/webserver/api_james folder:
     - routes are defined in this folder, one resource a file, with eventually a jsdoc-based swagger specification for each path
